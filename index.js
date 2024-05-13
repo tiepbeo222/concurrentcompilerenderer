@@ -1,4 +1,11 @@
-const chunk = (arr, size) =>
-  Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
-    arr.slice(i * size, i * size + size),
-  );
+function binarySearch(arr, target) {
+  let low = 0;
+  let high = arr.length - 1;
+  while (low <= high) {
+    let mid = Math.floor((low + high) / 2);
+    if (arr[mid] === target) return mid;
+    if (arr[mid] < target) low = mid + 1;
+    else high = mid - 1;
+  }
+  return -1;
+}
